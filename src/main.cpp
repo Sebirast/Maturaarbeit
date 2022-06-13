@@ -47,9 +47,12 @@ void setup()
   tft.PWM1config(true, RA8875_PWM_CLK_DIV1024); // PWM output for backlight
   tft.PWM1out(255);
   tft.fillScreen(RA8875_WHITE);
-  tft.textMode();
+
+  
 
   controlDisplay.drawRectangles();
+  const char* titles[] = {"Hello", "world", "earth"};
+  controlDisplay.setTitles(titles);
 }
 
 void loop()

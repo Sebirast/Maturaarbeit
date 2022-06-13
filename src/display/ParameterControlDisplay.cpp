@@ -29,10 +29,11 @@ void ParameterControlDisplay::drawRectangles()
 void ParameterControlDisplay::setTitles(const char* titles[]) 
 {
     tft->textMode();
+    tft->textTransparent(RA8875_BLACK);
 
-    for(int i = 40; i < 360; i += 160) {
-        // tft->textSetCursor()
-    }
+    tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - (480 / 3), 160, 1), utils::getCentrePositionY(titles[0], 0, 80, 1));
+
+    tft->textWrite(titles[0]);
 }
 
 /**

@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_RA8875.h>
+#include "utils/PixelCalculation.h"
 
 namespace display {
     class ParameterControlDisplay{
