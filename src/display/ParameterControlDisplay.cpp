@@ -25,11 +25,13 @@ void ParameterControlDisplay::drawRectangles()
 
 /**
  * this function sets the tiltes in the boxes
+ * not finished
  */
 void ParameterControlDisplay::setTitles(const char* titles[]) 
 {
     tft->textMode();
     tft->textTransparent(RA8875_BLACK);
+    tft->textEnlarge(2);
 
     tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - (480 / 3), 160, 1), utils::getCentrePositionY(titles[0], 0, 80, 1));
 
@@ -37,7 +39,8 @@ void ParameterControlDisplay::setTitles(const char* titles[])
 }
 
 /**
- * 
+ * this function sets the values corresponding to the titles and the encoders
+ * not finished
  */ 
 void ParameterControlDisplay::setValues(int values[]) 
 {
