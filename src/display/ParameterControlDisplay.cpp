@@ -31,11 +31,14 @@ void ParameterControlDisplay::setTitles(const char* titles[])
 {
     tft->textMode();
     tft->textTransparent(RA8875_BLACK);
-    tft->textEnlarge(2);
+    tft->textEnlarge(1);
 
-    tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - (480 / 3), 160, 1), utils::getCentrePositionY(titles[0], 0, 80, 1));
-
+    tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - 160, 160, 1), utils::getCentrePositionY(titles[0], 0, 80, 1));
     tft->textWrite(titles[0]);
+    tft->textSetCursor(utils::getCentrePositionX(titles[1], 800 - 160, 160, 1), utils::getCentrePositionY(titles[1], 160, 80, 1));
+    tft->textWrite(titles[1]);
+    tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - 160, 160, 1), utils::getCentrePositionY(titles[2], 320, 80, 1));
+    tft->textWrite(titles[2]);
 }
 
 /**
