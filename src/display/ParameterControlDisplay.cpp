@@ -49,3 +49,8 @@ void ParameterControlDisplay::setValues(int values[])
 {
 
 }
+
+void ParameterControlDisplay::setValues(const char* values[])
+{
+
+}

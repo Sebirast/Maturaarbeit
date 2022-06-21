@@ -24,5 +24,6 @@ namespace display {
             void drawRectangles();
             void setTitles(const char* titles[]);
             void setValues(int values[]);
+            void setValues(const char* values[]);
     };
 }
