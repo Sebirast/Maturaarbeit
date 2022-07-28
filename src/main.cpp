@@ -48,11 +48,12 @@ void setup()
   tft.PWM1out(255);
   tft.fillScreen(RA8875_WHITE);
 
-  
-
   controlDisplay.drawRectangles();
-  const char* titles[] = {"Hello", "world", "earth"};
+  const char* titles[] = {"Speed", "Pan", "Tilt"};
   controlDisplay.setTitles(titles);
+  int values[] = {0, 80, 200};
+  bool appendix[] = {1, 1, 1};
+  controlDisplay.setValues(values, appendix);
 }
 
 void loop()
