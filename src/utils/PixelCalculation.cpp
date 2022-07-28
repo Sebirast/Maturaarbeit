@@ -2,7 +2,7 @@
 
 /**
  * @param word the word that has to be printed to the display
- * @param x the x position of the box (upper right edge)
+ * @param x the x position of the box (upper left edge)
  * @param widthOfBox the width of the box
  * @param textEnlargement the factor that shows how much the text was made bigger by the tft->enlargeText(int enlargement)
  * 
@@ -11,13 +11,12 @@
  */ 
 int utils::getCentrePositionX(const char* word, int x, int widthOfBox, int textEnlargment)
 {
-    Serial.println(strlen(word));
     return (int)(((widthOfBox - strlen(word) * utils::standardTextWidth * (textEnlargment + 1))) / 2) + x - (textEnlargment + 1);
 }
 
 /**
  * @param word the word that has to be printed to the display
- * @param y the x position of the box (upper right edge)
+ * @param y the x position of the box (upper left edge)
  * @param heightOfBox the height of the box
  * @param textEnlargement the factor that shows how much the text was made bigger by the tft->enlargeText(int enlargement)
  * 
