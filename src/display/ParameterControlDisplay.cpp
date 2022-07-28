@@ -25,31 +25,54 @@ void ParameterControlDisplay::drawRectangles()
 
 /**
  * this function sets the tiltes in the boxes
- * not finished
+ * not finished x
  */
 void ParameterControlDisplay::setTitles(const char* titles[]) 
 {
+    int textEnlargement = 2;
     tft->textMode();
     tft->textTransparent(RA8875_BLACK);
-    tft->textEnlarge(1);
+    tft->textEnlarge(textEnlargement);
 
-    tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - 160, 160, 1), utils::getCentrePositionY(titles[0], 0, 80, 1));
+    tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - 160, 160, textEnlargement), utils::getCentrePositionY(titles[0], 0, 80, textEnlargement));
     tft->textWrite(titles[0]);
-    tft->textSetCursor(utils::getCentrePositionX(titles[1], 800 - 160, 160, 1), utils::getCentrePositionY(titles[1], 160, 80, 1));
+    tft->textSetCursor(utils::getCentrePositionX(titles[1], 800 - 160, 160, textEnlargement), utils::getCentrePositionY(titles[1], 160, 80, textEnlargement));
     tft->textWrite(titles[1]);
-    tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - 160, 160, 1), utils::getCentrePositionY(titles[2], 320, 80, 1));
+    tft->textSetCursor(utils::getCentrePositionX(titles[0], 800 - 160, 160, textEnlargement), utils::getCentrePositionY(titles[2], 320, 80, textEnlargement));
     tft->textWrite(titles[2]);
 }
 
 /**
- * this function sets the values corresponding to the titles and the encoders
+ * this function sets the values corresponding to the titles and the parameter control keys
+ * @param values[] the values that should be set -> int
  * not finished
  */ 
 void ParameterControlDisplay::setValues(int values[]) 
 {
+    int textEnlargement = 2;
+    tft->textMode();
+    tft->textTransparent(RA8875_BLACK);
+    tft->textEnlarge(textEnlargement);
+    tft->cp437(true);
 
+    Serial.println(utils::getCentrePositionY(utils::getStringFromInt(values[0]), 40, 80, textEnlargement));
+    Serial.println(utils::getCentrePositionY(utils::getStringFromInt(values[1]), 200, 80, textEnlargement));
+    Serial.println(utils::getCentrePositionY(utils::getStringFromInt(values[2]), 360, 80, textEnlargement));
+    
+    // const char appendix = "%";
+    tft->textSetCursor(utils::getCentrePositionX(utils::getStringFromInt(values[0]), 800 - 160, 160, textEnlargement), utils::getCentrePositionY(utils::getStringFromInt(values[0]), 80, 80, textEnlargement));
+    tft->textWrite(utils::getStringFromInt(values[0]));
+    tft->drawChar(0x52);
+    tft->textSetCursor(utils::getCentrePositionX(utils::getStringFromInt(values[1]), 800 - 160, 160, textEnlargement), utils::getCentrePositionY(utils::getStringFromInt(values[1]), 240, 80, textEnlargement));
+    tft->textWrite(utils::getStringFromInt(values[1]));
+    tft->textSetCursor(utils::getCentrePositionX(utils::getStringFromInt(values[2]), 800 - 160, 160, textEnlargement), utils::getCentrePositionY(utils::getStringFromInt(values[2]), 400, 80, textEnlargement));
+    tft->textWrite(utils::getStringFromInt(values[2]));
 }
 
+/**
+ * this function sets the values correponding to the titles and the encoders
+ * @param values[] the values that should be set -> const char*
+ */ 
 void ParameterControlDisplay::setValues(const char* values[])
 {
 
