@@ -18,13 +18,16 @@ namespace display {
 
             int radius = 10;
 
+            int titleYPosition[3] = {};
+            int valueYPosition[3] = {80, 240, 400};
+
         public:
             ParameterControlDisplay(Adafruit_RA8875* tft);
             void init();
             void setMode();
             void drawRectangles();
             void setTitles(const char* titles[]);
-            void setValues(int values[]);
+            void setValues(int values[], bool appendix[]);
             void setValues(const char* values[]);
     };
 }
